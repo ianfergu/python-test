@@ -1,5 +1,5 @@
 import unittest
-import weather
+import Weather
 
 
 class test_weather(unittest.TestCase):
