@@ -1,4 +1,4 @@
-from urllib import request
+import urllib
 
 
 class Weather:
@@ -7,7 +7,7 @@ class Weather:
 
     def highOf(self):
         try:
-            url = request.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
+            url = urllib.request.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
             mybytes = url.read()
 
             mystr = mybytes.decode("utf8")

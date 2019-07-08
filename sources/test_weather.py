@@ -1,5 +1,5 @@
 import unittest
-from sources.weather import Weather
+from weather import Weather
 
 
 class test_weather(unittest.TestCase):
@@ -18,4 +18,10 @@ class test_weather(unittest.TestCase):
         hurricane = Weather()
         forcastedTemp = hurricane.main()
         self.assertLessEqual(forcastedTemp, 90,
-                        ("It is going to be over 90 today! Too hot with a temp of!" + str(forcastedTemp)))
+                        ("It is going to be over 90 today! Too hot with a high of: " + str(forcastedTemp)))
+
+    def test_the_cold(self):
+        blizzard = Weather()
+        forecastedTemp = blizzard.main()
+        self.assertLessEqual(forecastedTemp, 32,
+                             ("No chance of a blizzard today! Too hot with a high of: " + str(forecastedTemp)))
