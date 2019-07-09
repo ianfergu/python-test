@@ -1,4 +1,4 @@
-from sources.weather import Weather
+from weather import Weather
 import urllib2
 
 
