@@ -3,16 +3,17 @@ import os
 
 # jenkins exposes the workspace directory through env.
 sys.path.append(['WORKSPACE'])
-from urllib import request
+from urllib2
 
 
 class Weather:
     def __init__(self):
         self.temp = 0
+        self.myurl = ""
 
     def highOf(self):
         try:
-            url = request.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
+            url = urllib2.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
             mybytes = url.read()
 
             mystr = mybytes.decode("utf8")
