@@ -60,7 +60,7 @@ pipeline {
                 sh 'pyinstaller --onefile sources/weather.py ' 
             }
             post {
-                always {
+                success {
                     archiveArtifacts 'dist/weather.py' 
                 }
             }
