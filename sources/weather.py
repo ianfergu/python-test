@@ -1,4 +1,9 @@
-import urllib
+import sys
+import os
+
+# jenkins exposes the workspace directory through env.
+sys.path.append(['WORKSPACE'])
+from urllib import request
 
 
 class Weather:
@@ -7,7 +12,7 @@ class Weather:
 
     def highOf(self):
         try:
-            url = urllib.request.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
+            url = request.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
             mybytes = url.read()
 
             mystr = mybytes.decode("utf8")
@@ -15,6 +20,7 @@ class Weather:
             index = mystr.find("RALEIGH-DURHAM")
             mystr = mystr[index:]
             index = mystr.find("/")
+
             self.temp = int(mystr[index+1: index+3])
 
         except Exception:

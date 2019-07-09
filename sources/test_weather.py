@@ -17,6 +17,7 @@ class test_weather(unittest.TestCase):
     def test_the_heat(self):
         hurricane = Weather()
         forcastedTemp = hurricane.main()
+        print(forcastedTemp)
         self.assertLessEqual(forcastedTemp, 90,
                         ("It is going to be over 90 today! Too hot with a high of: " + str(forcastedTemp)))
 
