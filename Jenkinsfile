@@ -14,7 +14,7 @@ pipeline {
                 sh 'python -m py_compile sources/weather.py'
             }
         }
-        stage('Test') {
+        stage('Initiate Tester') {
             agent {
                 docker {
                     image 'qnib/pytest'
