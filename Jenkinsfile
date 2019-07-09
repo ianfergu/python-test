@@ -26,23 +26,23 @@ pipeline {
                     parallel {
                         stage('URL Test') {
                             steps {
-                                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
-                            }
-
-                            post {
-                                always {
-                                    junit 'test-reports/results.xml'
-                                }
-                            }
-                        }
-                        stage('Weather Test') {
-                            steps {
                                 sh 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py'
                             }
 
                             post {
                                 always {
                                     junit 'test-reports/results_url.xml'
+                                }
+                            }
+                        }
+                        stage('Weather Test') {
+                            steps {
+                                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
+                            }
+
+                            post {
+                                always {
+                                    junit 'test-reports/results.xml'
                                 }
                             }
                         }
@@ -57,7 +57,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pyinstaller --onefile sources/weather.py' 
+                sh 'pyinstaller --onefile sources/weather.py ' 
             }
             post {
                 success {
