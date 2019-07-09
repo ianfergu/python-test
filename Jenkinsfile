@@ -22,7 +22,7 @@ pipeline {
             }
             
             stages {
-                stage('Parallel testing') {
+                stage('Testing') {
                     parallel {
                         stage('URL Test') {
                             steps {
@@ -39,7 +39,7 @@ pipeline {
                             steps {
                                 sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
                             }
-                        }
+                        
                             post {
                                 always {
                                     junit 'test-reports/results.xml'
@@ -66,4 +66,4 @@ pipeline {
             }
         }
     }
-
+}
