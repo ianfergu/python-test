@@ -37,12 +37,9 @@ pipeline {
                         }
                         stage('Weather Test') {
                             steps {
-                                try {
-                                    sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
-                                } catch (exc) {
-                                    echo 'A non-crucial test failed, continuing to build stage.'
-                                }
-
+                                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
+                            }
+                        }
                             post {
                                 always {
                                     junit 'test-reports/results.xml'
@@ -70,4 +67,4 @@ pipeline {
         }
     }
 }
-}
+
