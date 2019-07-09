@@ -20,23 +20,32 @@ pipeline {
                     image 'qnib/pytest'
                 }
             }
-            parallel {
-                steps {
-                    sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
-                }
-                
-                post {
-                    always {
-                        junit 'test-reports/results.xml'
-                    }
-                }
-                steps {
-                    sh 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py'
-                }
-                
-                post {
-                    always {
-                        junit 'test-reports/results_url.xml'
+            
+            stages {
+                stage('Parallel testing') {
+                    parallel {
+                        stage('URL Test') {
+                            steps {
+                                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
+                            }
+
+                            post {
+                                always {
+                                    junit 'test-reports/results.xml'
+                                }
+                            }
+                        }
+                        stage('Weather Test') {
+                            steps {
+                                sh 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py'
+                            }
+
+                            post {
+                                always {
+                                    junit 'test-reports/results_url.xml'
+                                }
+                            }
+                        }
                     }
                 }
             }
