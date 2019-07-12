@@ -11,7 +11,8 @@ class test_weather(unittest.TestCase):
         try:
             hurricane = Weather()
         except Exception:
-            self.assertTrue(False, "The constructor failed, something must have gone wrong.")
+            self.assertTrue(False, "The constructor failed, "
+                                   "something must have gone wrong.")
 
 
     def test_the_heat(self):
@@ -19,10 +20,12 @@ class test_weather(unittest.TestCase):
         forcastedTemp = hurricane.main()
         print(forcastedTemp)
         self.assertLessEqual(forcastedTemp, 90,
-                        ("It is going to be over 90 today! Too hot with a high of: " + str(forcastedTemp)))
+                        ("It is going to be over 90 today! "
+                         "Too hot with a high of: " + str(forcastedTemp)))
 
     def test_the_cold(self):
         blizzard = Weather()
         forecastedTemp = blizzard.main()
         self.assertLessEqual(forecastedTemp, 32,
-                             ("No chance of a blizzard today! Too hot with a high of: " + str(forecastedTemp)))
+                             ("No chance of a blizzard today! "
+                              "Too hot with a high of: " + str(forecastedTemp)))

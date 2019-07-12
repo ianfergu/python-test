@@ -1,8 +1,8 @@
 pipeline {
     agent none
-    options {
-        skipStagesAfterUnstable()
-    }
+  //  options {
+        //skipStagesAfterUnstable()
+  //  }
     stages {
         stage('Build') {
             agent {
@@ -14,33 +14,54 @@ pipeline {
                 sh 'python -m py_compile sources/weather.py'
             }
         }
-        stage('Test') {
+        stage('Initiate Tester') {
             agent {
                 docker {
                     image 'qnib/pytest'
                 }
             }
-            steps {
-                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
-            }
-            post {
-                always {
-                    junit 'test-reports/results.xml'
+
+            stages {
+                stage('Testing') {
+                    parallel {
+                        stage('URL Test') {
+                            steps {
+                                sh 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py'
+                            }
+
+                            post {
+                                always {
+                                    junit 'test-reports/results_url.xml'
+                                }
+                            }
+                        }
+                        stage('Weather Test') {
+                            steps {
+                                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
+                            }
+
+                            post {
+                                always {
+                                    junit 'test-reports/results.xml'
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-        stage('Deliver') { 
+        stage('Deliver') {
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python2' 
+                    image 'cdrx/pyinstaller-linux:python2'
                 }
             }
             steps {
-                sh 'pyinstaller --onefile sources/weather.py' 
+                sh 'pyinstaller --onefile sources/weather.py '
             }
             post {
                 success {
-                    archiveArtifacts 'dist/weather.py' 
+                    archiveArtifacts 'dist/weather.py'
                 }
             }
         }
