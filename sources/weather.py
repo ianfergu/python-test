@@ -1,9 +1,9 @@
 import sys
-import os
+import urllib2
 
 # jenkins exposes the workspace directory through env.
 sys.path.append(['WORKSPACE'])
-import urllib2
+
 
 
 class Weather:
