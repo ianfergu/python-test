@@ -23,6 +23,16 @@ pipeline {
 
             stages {
                 stage('Testing') {
+		    stage('Web Test') {
+		    	steps {
+				sh 'py.test --verbose --junit-xml test-reports/results_web.xml sources/test_webtest.py'
+				}
+			post {
+			    always {
+			    	junit 'test-reports/results_web.xml'
+				}
+			    }
+		    }
                     parallel {
                         stage('URL Test') {
                             steps {
