@@ -1,5 +1,5 @@
 import unittest
-from sources.webtest import go_online
+from webtest import go_online
 
 
 class test_webtest(unittest.TestCase):
