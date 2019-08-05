@@ -11,7 +11,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m py_compile sources/weather.py'
+                sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
         stage('Initiate Tester') {
@@ -24,7 +24,7 @@ pipeline {
             stages {
 		stage('Web Test') {
 		    	steps {
-				sh 'py.test --verbose --junit-xml test-reports/results_web.xml sources/test_webtest.py'
+				sh script: 'py.test --verbose --junit-xml test-reports/results_web.xml sources/test_webtest.py', label: "Test web access and record results."
 				}
 			post {
 			    always {
@@ -37,7 +37,7 @@ pipeline {
                     parallel {
                         stage('URL Test') {
                             steps {
-                                sh 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py'
+                                sh script: 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py', label: "Test the NWS URL and record results."
                             }
 
                             post {
@@ -48,7 +48,7 @@ pipeline {
                         }
                         stage('Weather Test') {
                             steps {
-                                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py'
+                                sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
                             }
 
                             post {
@@ -68,7 +68,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pyinstaller --onefile sources/weather.py '
+                sh script: 'pyinstaller --onefile sources/weather.py ', label: "Deliver the application."
             }
             post {
                 success {
