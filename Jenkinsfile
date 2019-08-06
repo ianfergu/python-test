@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     options {
         skipStagesAfterUnstable()
     }
@@ -62,7 +62,13 @@ pipeline {
             }
         }
         stage('Deliver') {
+            agent {
+                docker {
+                    image 'cdrx/pyinstaller-linux:python2'
+                }
+            }
             steps {
+                sh script: 'pyinstaller --onefile sources/weather.py ', label: "Deliver the application."
                 sh "${localhost:8080/job/python-test/job/develop}/consoleText"
             }
             post {
