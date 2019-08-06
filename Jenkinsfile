@@ -11,7 +11,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'sudo cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg'
+                sh 'cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg'
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
