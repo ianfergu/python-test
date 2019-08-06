@@ -61,7 +61,7 @@ pipeline {
         }
         stage('Deliver') {
              steps {
-                  sh 'sudo cp /var/www/arahtml/goodweather.jpg /var/www/arahtml/weather.jpg'
+                  sh 'cp /var/www/arahtml/goodweather.jpg /var/www/arahtml/weather.jpg'
             }
         }
     }
