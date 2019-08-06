@@ -51,9 +51,7 @@ pipeline {
                                       sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
                                 }
                                 agent {
-                                    docker {
-                                        image 'qnib/pytest'
-                                        }
+                                    docker {image 'qnib/pytest'}
                                     }
                                 sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
                                 }
