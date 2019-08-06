@@ -64,18 +64,9 @@ pipeline {
             }
         }
         stage('Deliver') {
-            agent {
-                docker {
-                    image 'cdrx/pyinstaller-linux:python2'
-                }
-            }
-            steps {
-                sh 'pyinstaller --onefile sources/weather.py'
-                sh "${localhost:8080/job/python-test/job/develop}/consoleText"
-            }
-            post {
-                success {
-                    archiveArtifacts 'venv/weather.py'
+            agent any {
+                steps {
+                    sh "${localhost:8080/job/python-test/job/develop}/consoleText"
                 }
             }
         }
