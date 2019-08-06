@@ -5,11 +5,11 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'python:2-alpine'
-                }
-            }
+//            agent {
+//                docker {
+//                    image 'python:2-alpine'
+//                }
+//            }
             steps {
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
@@ -69,6 +69,7 @@ pipeline {
             }
             steps {
                 sh script: 'pyinstaller --onefile sources/weather.py ', label: "Deliver the application."
+                sh "${localhost:8080/job/python-test/job/develop}/consoleText"
             }
             post {
                 success {

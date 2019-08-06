@@ -26,6 +26,6 @@ class test_weather(unittest.TestCase):
     def test_the_cold(self):
         blizzard = Weather()
         forecastedTemp = blizzard.main()
-        self.assertLessEqual(forecastedTemp, 32,
+        self.assertGreaterEqual(forecastedTemp, 32,
                              ("No chance of a blizzard today! "
                               "Too hot with a high of: " + str(forecastedTemp)))
