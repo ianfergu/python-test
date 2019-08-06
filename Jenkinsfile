@@ -20,7 +20,6 @@ pipeline {
                     image 'qnib/pytest'
                 }
             }
-
             stages {
 		stage('Web Test') {
 		    	steps {
@@ -68,12 +67,12 @@ pipeline {
                 }
             }
             steps {
-                sh script: 'pyinstaller --onefile sources/weather.py ', label: "Deliver the application."
+                sh script: 'pyinstaller --onefile sources/weather.py', label: "Deliver the application."
                 sh "${localhost:8080/job/python-test/job/develop}/consoleText"
             }
             post {
                 success {
-                    archiveArtifacts venv/weather.py
+                    archiveArtifacts 'venv/weather.py'
                 }
             }
         }
