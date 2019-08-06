@@ -73,7 +73,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts venv/weather.py'
+                    archiveArtifacts venv/weather.py
                 }
             }
         }
