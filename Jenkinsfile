@@ -5,6 +5,9 @@ pipeline {
     }
     stages {
         stage('Build') {
+            steps {
+                sh 'cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg'
+            }
             agent {
                 docker {
                     image 'python:2-alpine'
