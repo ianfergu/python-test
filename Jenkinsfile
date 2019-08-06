@@ -11,10 +11,7 @@ pipeline {
                 }
             }
             steps {
-                export PYTHONPATH=$WORKSPACE:$PYTHONPATH {
-
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
-                }
             }
         }
         stage('Initiate Tester') {
