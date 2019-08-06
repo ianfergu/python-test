@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent node
+            agent { label 'nod' }
             steps {
                 dir ("/var/www/arahtml/") {
                      sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
@@ -45,7 +45,7 @@ pipeline {
                             }
                         }
                         stage('Weather Test') {
-                            agent node
+                            agent { label 'nod' }
                             steps {
                                 dir ("/var/www/arahtml/") {
                                       sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
@@ -64,7 +64,7 @@ pipeline {
             }
         }
         stage('Deliver') {
-        agent node
+        agent { label 'nod' }
              steps {
                 dir ("/var/www/arahtml/") {
                     sh 'cp /var/www/arahtml/goodweather.jpg /var/www/arahtml/weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
