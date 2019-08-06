@@ -11,7 +11,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cd / && cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                sh 'cd / && pwd && cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
