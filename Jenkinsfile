@@ -11,6 +11,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'sudo cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg'
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
@@ -48,6 +49,7 @@ pipeline {
                         stage('Weather Test') {
                             steps {
                                 sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
+                                sh 'sudo cp /var/www/arahtml/desert.jpg /var/www/arahtml/weather.jpg'
                             }
 
                             post {
@@ -62,7 +64,7 @@ pipeline {
         }
         stage('Deliver') {
              steps {
-                  sh "${localhost:8080/job/python-test/job/develop}/consoleText"
+                  sh 'sudo cp /var/www/arahtml/goodweather.jpg /var/www/arahtml/weather.jpg'
             }
         }
     }
