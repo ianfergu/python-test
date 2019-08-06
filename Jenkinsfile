@@ -11,7 +11,9 @@ pipeline {
                 }
             }
             steps {
-                sh 'sudo cd /var/www/arahtml && cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                dir ("/var/www/arahtml") {
+                    sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                    }
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
