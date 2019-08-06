@@ -5,11 +5,11 @@ pipeline {
     }
     stages {
         stage('Build') {
-//            agent {
-//                docker {
-//                    image 'python:2-alpine'
-//                }
-//            }
+            agent {
+                docker {
+                    image 'python:2-alpine'
+                }
+            }
             steps {
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
