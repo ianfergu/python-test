@@ -50,10 +50,15 @@ pipeline {
                                     sh 'cp /var/www/arahtml/desert.jpg /var/www/arahtml/weather.jpg'
                                 }
                             }
+                            agent {
+                                docker {
+                                    image 'qnib/pytest'
+                                }
+                            }
+                                post {
+                                    always {
+                                        junit 'test-reports/results.xml'
 
-                            post {
-                                always {
-                                    junit 'test-reports/results.xml'
                                 }
                             }
                         }
