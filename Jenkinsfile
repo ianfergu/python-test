@@ -1,8 +1,8 @@
 pipeline {
     agent none
-  //  options {
-        //skipStagesAfterUnstable()
-  //  }
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
         stage('Build') {
             agent {
@@ -29,7 +29,7 @@ pipeline {
 			post {
 			    always {
 			    	junit 'test-reports/results_web.xml'
-				}
+				    }
 			    }
 		    }
                 stage('Testing') {
