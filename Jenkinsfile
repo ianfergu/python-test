@@ -52,11 +52,6 @@ pipeline {
                                     }
                                 }
                             }
-                            agent {
-                                docker {
-                                    image 'qnib/pytest'
-                                }
-                            }
                                 post {
                                     always {
                                         junit 'test-reports/results.xml'
