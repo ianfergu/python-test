@@ -45,10 +45,10 @@ pipeline {
                         }
                         stage('Weather Test') {
                             steps {
-                                sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
-                                    dir ("/var/www/arahtml/") {
+                                dir ("/var/www/arahtml/") {
                                         sh 'cp /var/www/arahtml/desert.jpg /var/www/arahtml/weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
                                     }
+                                sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
                                 }
                                 post {
                                     always {
