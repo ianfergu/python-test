@@ -5,13 +5,13 @@ pipeline {
     }
     stages {
         stage('Build') {
-            sh 'cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg'
             agent {
                 docker {
                     image 'python:2-alpine'
                 }
             }
             steps {
+                sh 'pwd'
                 sh 'cp /var/www/arahtml/unknown.jpg /var/www/arahtml/weather.jpg'
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
