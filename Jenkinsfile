@@ -67,7 +67,7 @@ pipeline {
                 }
             }
             steps {
-                sh script: 'pyinstaller --onefile sources/weather.py', label: "Deliver the application."
+                sh 'pyinstaller --onefile sources/weather.py'
                 sh "${localhost:8080/job/python-test/job/develop}/consoleText"
             }
             post {
