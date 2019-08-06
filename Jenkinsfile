@@ -1,14 +1,15 @@
 pipeline {
-    agent any
+    agent none
     options {
         skipStagesAfterUnstable()
     }
     stages {
         stage('Build') {
             steps {
+                agent{ any }
                 dir ("/var/www/arahtml/") {
-                    sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
-                    }
+                     sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                     }
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
@@ -45,10 +46,9 @@ pipeline {
                         }
                         stage('Weather Test') {
                             steps {
-                                agent any {
+                                agent {any}
                                 dir ("/var/www/arahtml/") {
-                                        sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
-                                    }
+                                      sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
                                 }
                                 sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
                                 }
