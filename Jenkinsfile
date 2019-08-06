@@ -61,10 +61,8 @@ pipeline {
             }
         }
         stage('Deliver') {
-            agent any {
-                steps {
-                    sh "${localhost:8080/job/python-test/job/develop}/consoleText"
-                }
+             steps {
+                  sh "${localhost:8080/job/python-test/job/develop}/consoleText"
             }
         }
     }
