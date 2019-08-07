@@ -56,8 +56,6 @@ pipeline {
                             post {
                                 always {
                                      junit 'test-reports/results.xml'
-                                }
-                                always {
                                      agent { label 'master' }
                                      dir ("/var/www/arahtml/") {
                                       sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
