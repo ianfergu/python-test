@@ -82,7 +82,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts 'dist/weather.py' 
+                    archiveArtifacts 'weather.py' 
                 }
             }
         } 
