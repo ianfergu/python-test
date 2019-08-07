@@ -13,14 +13,8 @@ pipeline {
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
         }
-        stage('Initiate Tester') {
-            agent {
-                docker {
-                    image 'qnib/pytest'
-                }
-            }
-            stages {
 		stage('Web Test') {
+		    agent { docker { image 'qnib/pytest' } }
 		    	steps {
 				sh script: 'py.test --verbose --junit-xml test-reports/results_web.xml sources/test_webtest.py', label: "Test web access and record results."
 				}
@@ -34,6 +28,7 @@ pipeline {
 		
                     parallel {
                         stage('URL Test') {
+                            agent { docker { image 'qnib/pytest' } }
                             steps {
                                 sh script: 'py.test --verbose --junit-xml test-reports/results_url.xml sources/test_url.py', label: "Test the NWS URL and record results."
                             }
@@ -50,6 +45,7 @@ pipeline {
                                 dir ("/var/www/arahtml/") {
                                      sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
                                      }
+                                agent { docker { image 'qnib/pytest' } }
                                 sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
                                 }
                                 post {
@@ -61,8 +57,6 @@ pipeline {
                         }
                     }
                 }
-            }
-        }
         stage('Deliver') {
         agent { label 'master' }
              steps {
