@@ -52,8 +52,9 @@ pipeline {
                             agent { docker { image 'qnib/pytest'} }
                             steps {
                                     sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
+                                    agent { label 'master' }
                                     }
-                            agent { label 'master' }
+
                             post {
                                 always {
 
