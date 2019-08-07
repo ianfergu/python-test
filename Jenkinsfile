@@ -48,7 +48,7 @@ pipeline {
                                 always {
                                      junit 'test-reports/results.xml'
                                 }
-                                 failure {
+                                 unstable {
                                      agent { label 'master' }
                                      dir ("/var/www/arahtml/") {
                                       sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
