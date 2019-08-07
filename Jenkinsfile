@@ -5,7 +5,7 @@ pipeline {
             agent { label 'master' }
             steps {
                 dir ("/var/www/arahtml/") {
-                     sh 'cp unknownwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
+                     sh 'cp unknownwebpage webpage'
                      }
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
@@ -22,7 +22,7 @@ pipeline {
 				failure {
 				    agent { label 'master' }
                          dir ("/var/www/arahtml/") {
-                         sh 'cp hotwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
+                         sh 'cp hotwebpage webpage'
                         }
 				    }
 			    }
@@ -43,7 +43,7 @@ pipeline {
                                 failure {
                                     agent { label 'master' }
                                      dir ("/var/www/arahtml/") {
-                                      sh 'cp unknownwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
+                                      sh 'cp unknownwebpage webpage'
                                      }
                                 }
                             }
@@ -65,7 +65,7 @@ pipeline {
                             steps {
                                  sh 'sleep 5s'
                                  dir ("/var/www/arahtml/") {
-                                      sh 'cp hotwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
+                                      sh 'cp hotwebpage webpage'
                                  }
                             }
                         }
@@ -75,7 +75,7 @@ pipeline {
         agent { label 'master' }
              steps {
                 dir ("/var/www/arahtml/") {
-                    sh 'cp nicewebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
+                    sh 'cp nicewebpage webpage'
 
                 }
             }
