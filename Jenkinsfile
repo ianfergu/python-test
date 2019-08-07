@@ -19,6 +19,12 @@ pipeline {
 			    always {
 			    	junit 'test-reports/results_web.xml'
 				    }
+				failure {
+				    agent { label 'master' }
+                         dir ("/var/www/arahtml/") {
+                         sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                        }
+				    }
 			    }
 		    }
                 stage('Testing') {
@@ -34,6 +40,12 @@ pipeline {
                                 always {
                                     junit 'test-reports/results_url.xml'
                                 }
+                                failure {
+                                    agent { label 'master' }
+                                     dir ("/var/www/arahtml/") {
+                                      sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                                     }
+                                }
                             }
                         }
                         stage('Weather Test') {
@@ -45,7 +57,7 @@ pipeline {
                                 always {
                                      junit 'test-reports/results.xml'
                                 }
-                                 unstable {
+                                 changed {
                                      agent { label 'master' }
                                      dir ("/var/www/arahtml/") {
                                       sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
