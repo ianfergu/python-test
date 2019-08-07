@@ -53,9 +53,10 @@ pipeline {
                             steps {
                                     sh script: 'py.test --verbose --junit-xml test-reports/results.xml sources/test_weather.py', label: "Test the temperature and record results."
                                     }
+                            agent { label 'master' }
                             post {
                                 always {
-                                     agent { label 'master' }
+
                                      junit 'test-reports/results.xml'
                                      dir ("/var/www/arahtml/") {
                                         sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
