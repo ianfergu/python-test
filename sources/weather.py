@@ -13,12 +13,12 @@ class Weather:
 
     def highOf(self):
         try:
-            url = urllib2.urlopen("https://forecast.weather.gov/product.php?site=CRH&product=SFT&issuedby=RAH")
+            url = urllib2.urlopen("https://forecast-v3.weather.gov/products/locations/ALU/SFT/5?format=text")
             mybytes = url.read()
 
             mystr = mybytes.decode("utf8")
             url.close()
-            index = mystr.find("RALEIGH-DURHAM")
+            index = mystr.find("Bethel")
             mystr = mystr[index:]
             index = mystr.find("/")
 
