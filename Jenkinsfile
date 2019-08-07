@@ -5,7 +5,7 @@ pipeline {
             agent { label 'master' }
             steps {
                 dir ("/var/www/arahtml/") {
-                     sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                     sh 'cp unknownwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
                      }
                 sh script: 'python -m py_compile sources/weather.py', label: "Compile the Application"
             }
@@ -22,7 +22,7 @@ pipeline {
 				failure {
 				    agent { label 'master' }
                          dir ("/var/www/arahtml/") {
-                         sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                         sh 'cp hotwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
                         }
 				    }
 			    }
@@ -43,7 +43,7 @@ pipeline {
                                 failure {
                                     agent { label 'master' }
                                      dir ("/var/www/arahtml/") {
-                                      sh 'cp unknown.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                                      sh 'cp unknownwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
                                      }
                                 }
                             }
@@ -65,7 +65,7 @@ pipeline {
                             steps {
                                  sh 'sleep 5s'
                                  dir ("/var/www/arahtml/") {
-                                      sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                                      sh 'cp hotwebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
                                  }
                             }
                         }
@@ -75,7 +75,7 @@ pipeline {
         agent { label 'master' }
              steps {
                 dir ("/var/www/arahtml/") {
-                    sh 'cp /var/www/arahtml/goodweather.jpg /var/www/arahtml/weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                    sh 'cp nicewebpage webpage && cd /var/lib/jenkins/workspace/python-test_develop'
 
                 }
             }
