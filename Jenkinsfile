@@ -56,14 +56,17 @@ pipeline {
 
                             post {
                                 always {
-                                     agent { label 'master' }
-                                     steps {
-                                         junit 'test-reports/results.xml'
-                                         dir ("/var/www/arahtml/") {
-                                            sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
-                                         }
-                                     }
+                                     junit 'test-reports/results.xml'
                                 }
+                            }
+                        }
+                        stage('Update Website With Results') {
+                            agent { label 'master' }
+                            steps {
+                                 sh 'sleep 5s'
+                                 dir ("/var/www/arahtml/") {
+                                      sh 'cp desert.jpg weather.jpg && cd /var/lib/jenkins/workspace/python-test_develop'
+                                 }
                             }
                         }
                     }
