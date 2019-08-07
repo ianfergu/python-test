@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4147a12-f680-4a11-b664-6e68e4ba4037" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
     </list>
     <list id="d366e7a0-f122-4a89-ac19-ccf6ff02880a" name="changed jenkinsfile" comment="changed jenkinsfile">
@@ -54,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="70" column="1" lean-forward="true" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+            <state relative-caret-position="272">
+              <caret line="61" column="64" lean-forward="true" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -269,41 +270,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562177636920</updated>
-    </task>
-    <task id="LOCAL-00016" summary="changed jenkinsfile">
-      <created>1565105959104</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1565105959104</updated>
-    </task>
-    <task id="LOCAL-00017" summary="changed jenkinsfile">
-      <created>1565106593784</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1565106593784</updated>
-    </task>
-    <task id="LOCAL-00018" summary="changed jenkinsfile">
-      <created>1565106670798</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1565106670798</updated>
-    </task>
-    <task id="LOCAL-00019" summary="changed jenkinsfile">
-      <created>1565106800620</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1565106800620</updated>
-    </task>
-    <task id="LOCAL-00020" summary="changed jenkinsfile">
-      <created>1565106842378</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1565106842378</updated>
     </task>
     <task id="LOCAL-00021" summary="changed jenkinsfile">
       <created>1565107055535</created>
@@ -613,7 +579,42 @@
       <option name="project" value="LOCAL" />
       <updated>1565180931701</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="changed jenkinsfile">
+      <created>1565181149008</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1565181149008</updated>
+    </task>
+    <task id="LOCAL-00066" summary="changed jenkinsfile">
+      <created>1565181279255</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1565181279255</updated>
+    </task>
+    <task id="LOCAL-00067" summary="changed jenkinsfile">
+      <created>1565181355891</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1565181355891</updated>
+    </task>
+    <task id="LOCAL-00068" summary="changed jenkinsfile">
+      <created>1565181432176</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1565181432176</updated>
+    </task>
+    <task id="LOCAL-00069" summary="changed jenkinsfile">
+      <created>1565181558640</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1565181558640</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -816,8 +817,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="70" column="1" lean-forward="true" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+        <state relative-caret-position="272">
+          <caret line="61" column="64" lean-forward="true" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
         </state>
       </provider>
     </entry>
