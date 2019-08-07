@@ -71,7 +71,22 @@ pipeline {
                         }
                     }
                 }
-        stage('Deliver') {
+	 stage('Deliver') { 
+            agent {
+                docker {
+                    image 'cdrx/pyinstaller-linux:python2' 
+                }
+            }
+            steps {
+                sh 'pyinstaller --onefile sources/weather.py ' 
+            }
+            post {
+                success {
+                    archiveArtifacts 'sources/weather.py' 
+                }
+            }
+        } 
+        stage('Update Results') {
         agent { label 'master' }
              steps {
                 dir ("/var/www/arahtml/") {
