@@ -1,5 +1,5 @@
 <?php 
-echo "<n>We did it!</n>";
+echo "<H1>We did it!</H1>";
 $output = shell_exec('ssh fabian@http://comp535-lnx-lampvm1.cs.unc.edu/');
-echo "<pre>$output</pre>";
+echo "<H1>$output</H1>";
 ?>
